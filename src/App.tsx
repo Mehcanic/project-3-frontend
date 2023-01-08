@@ -14,7 +14,9 @@ import Footer from "./components/Footer"
 function App() {
   return (
     <Router>
-      <Navbar />
+      <header>
+        <Navbar />
+      </header>
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -25,7 +27,9 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
         </Routes>
       </main>
-      <Footer />
+      <footer>
+        <Footer />
+      </footer>
     </Router>
   )
 }

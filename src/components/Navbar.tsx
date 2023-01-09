@@ -120,7 +120,7 @@ function NavBar() {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             <Link to='/products' style={pageStyle}>Collections</Link>
             <Link to='/custom' style={pageStyle}>Custom</Link>
-            <Link to='/about' style={pageStyle}>About</Link>
+            <Link to='#about' style={pageStyle}>About</Link>
             <Link to='/contact' style={pageStyle}>Contact</Link>
           </Box>
           <Box sx={{ flexGrow: 0.5, display: { xs: 'none', md: 'flex' } }}>

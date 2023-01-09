@@ -8,7 +8,7 @@ import Divider from '@mui/material/Divider';
 
 function About() {
   return (
-    <div name='about'>
+    <div id='about'>
       <Container maxWidth='xl'>
         <Divider variant="middle" />
         <Typography gutterBottom mt={4} variant="h3" align="center" sx={{ fontFamily: 'Oswald', fontWeight: '200' }}>

@@ -13,6 +13,7 @@ import MenuItem from '@mui/material/MenuItem';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 
 import { Link } from "react-router-dom";
+import { HashLink } from 'react-router-hash-link'
 
 
 const pagesAll = ['Products', 'Custom', 'About', 'Contact', 'Login', 'Signup'];
@@ -44,10 +45,6 @@ function NavBar() {
     color: 'black',
   };
 
-  const navbarStyle = {
-    backgroundColor: "white"
-  }
-
   const basketStyle = {
     // fontSize: "large"
   }
@@ -61,9 +58,10 @@ function NavBar() {
   }
 
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl" style={navbarStyle}>
+    <AppBar position="static" color="default">
+      <Container maxWidth="xl">
         <Toolbar disableGutters >
+          
 
           {/* Logo for large window */}
           <Box sx={{ display: { xs: 'none', md: 'flex' }, mr: 5 }}>
@@ -120,7 +118,7 @@ function NavBar() {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             <Link to='/products' style={pageStyle}>Collections</Link>
             <Link to='/custom' style={pageStyle}>Custom</Link>
-            <Link to='#about' style={pageStyle}>About</Link>
+            <HashLink smooth to='/#about' style={pageStyle}>About</HashLink>
             <Link to='/contact' style={pageStyle}>Contact</Link>
           </Box>
           <Box sx={{ flexGrow: 0.5, display: { xs: 'none', md: 'flex' } }}>

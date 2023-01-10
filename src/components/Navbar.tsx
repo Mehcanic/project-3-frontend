@@ -116,14 +116,14 @@ function NavBar() {
           </Box>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            <Link to='/products' style={pageStyle}>Collections</Link>
-            <Link to='/custom' style={pageStyle}>Custom</Link>
-            <HashLink smooth to='/#about' style={pageStyle}>About</HashLink>
-            <Link to='/contact' style={pageStyle}>Contact</Link>
+            <Link to='/products' style={pageStyle}>collections</Link>
+            <Link to='/custom' style={pageStyle}>custom</Link>
+            <HashLink smooth to='/#about' style={pageStyle}>about</HashLink>
+            <Link to='/contact' style={pageStyle}>contact</Link>
           </Box>
           <Box sx={{ flexGrow: 0.5, display: { xs: 'none', md: 'flex' } }}>
-            <Link to='/login' style={logSignStyle}>Login</Link>
-            <Link to='/signup' style={logSignStyle}>Signup</Link>
+            <Link to='/login' style={logSignStyle}>login</Link>
+            <Link to='/signup' style={logSignStyle}>signup</Link>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

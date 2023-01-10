@@ -9,7 +9,7 @@ import Divider from '@mui/material/Divider';
 function About() {
   return (
     <div id='about'>
-      <Container maxWidth='xl'>
+      <Container fixed>
         <Divider variant="middle" />
         <Typography gutterBottom mt={4} variant="h3" align="center" sx={{ fontFamily: 'Oswald', fontWeight: '200' }}>
           ABOUT KLEUR

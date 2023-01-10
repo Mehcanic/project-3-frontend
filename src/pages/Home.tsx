@@ -4,6 +4,7 @@ import zIndex from "@mui/material/styles/zIndex";
 import { Container } from "@mui/system";
 import React from "react";
 import About from "../components/About";
+import Contact from "../components/Contact";
 import ColorPicker from "../components/ColorPicker";
 
 function Home() {
@@ -41,7 +42,8 @@ function Home() {
           </Stack>
         </Container>
       </div>
-      <About/>
+      <About />
+      <Contact />
     </>
 
   )

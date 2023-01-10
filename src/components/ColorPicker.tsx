@@ -18,7 +18,6 @@ interface ColorResults {
 
 type ReactColorTypes = InjectedColorProps | ColorResults
 function ColorPicker(props : any ) {
-
   const [currentColor, setCurrentColor] = React.useState<string>('#fff')
   const [opacity, setOpacity] = React.useState<Number>(1)
   const [heroColorData, setHeroColorData] = React.useState<Array<Number>>([0, 250, 0])

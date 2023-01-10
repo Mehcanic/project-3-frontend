@@ -12,7 +12,7 @@ function Home() {
   const [heroOpacity, setHeroOpacity] = React.useState<Number>(1)
   console.log(heroColor)
 
-  const heroStyle ={
+  const heroStyle = {
     backgroundColor: `rgb(${heroColor}, ${String(heroOpacity)})`,
     height: "500px",
   }
@@ -20,28 +20,28 @@ function Home() {
   console.log(heroStyle)
   return (
     <>
-    <div style={heroStyle}>
-    <Container maxWidth="xl">
-      <Stack direction="row" alignItems="center" justifyContent="space-evenly" mb="50px" pt="50px">
-        <Stack alignItems="center" justifyContent="center" spacing={10}>
-          <Typography variant="h1" color="black" fontSize={70} width="483px" fontFamily="Oswald">
-            Embrace Your Style With Custmo Colours
-          </Typography>
-          <Stack direction="row" spacing={4} width="483px">
-            <Button variant="contained" sx={{background: "#446dbb", height: "40px", borderRadius: "7px"}}>BROWSE COLOURS</Button>
-            <Button variant="outlined" sx={{background: "white", border: "1px solid #446dbb", height: "40px", borderRadius: "7px"}}> CREATE CUSTOM</Button>
+      <div style={heroStyle}>
+        <Container maxWidth="xl">
+          <Stack direction="row" alignItems="center" justifyContent="space-evenly" mb="50px" pt="50px">
+            <Stack alignItems="center" justifyContent="center" spacing={10}>
+              <Typography variant="h1" color="black" fontSize={70} width="483px" fontFamily="Oswald">
+                Embrace Your Style With Custom Colours
+              </Typography>
+              <Stack direction="row" spacing={4} width="483px">
+                <Button variant="contained" sx={{ background: "#446dbb", height: "40px", borderRadius: "7px" }}>BROWSE COLOURS</Button>
+                <Button variant="outlined" sx={{ background: "white", border: "1px solid #446dbb", height: "40px", borderRadius: "7px" }}> CREATE CUSTOM</Button>
+              </Stack>
+            </Stack>
+            <Stack direction="column" alignItems="center" justifyContent="center" spacing={2}>
+              <ColorPicker
+                setHeroColor={setHeroColor}
+                setHeroOpacity={setHeroOpacity}
+              />
+            </Stack>
           </Stack>
-        </Stack>
-        <Stack direction="column" alignItems="center" justifyContent="center" spacing={2}>
-          <ColorPicker 
-            setHeroColor={setHeroColor}
-            setHeroOpacity={setHeroOpacity}
-          />
-        </Stack>
-      </Stack>
-    </Container>
-    <About />
-    </div>
+        </Container>
+      </div>
+      <About/>
     </>
 
   )

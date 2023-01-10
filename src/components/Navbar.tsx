@@ -119,7 +119,7 @@ function NavBar() {
             <Link to='/products' style={pageStyle}>collections</Link>
             <Link to='/custom' style={pageStyle}>custom</Link>
             <HashLink smooth to='/#about' style={pageStyle}>about</HashLink>
-            <Link to='/contact' style={pageStyle}>contact</Link>
+            <HashLink smooth to='/#contact' style={pageStyle}>contact</HashLink>
           </Box>
           <Box sx={{ flexGrow: 0.5, display: { xs: 'none', md: 'flex' } }}>
             <Link to='/login' style={logSignStyle}>login</Link>

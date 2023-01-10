@@ -28,7 +28,7 @@ function ColorPicker(props : any ) {
       return color.rgb[value]
     })
     sortRgba.pop()
-    setHeroColorData(sortRgba)
+    // setHeroColorData(sortRgba)
     setCurrentColor(color.hex!)
     setOpacity(color.hsl!.a)
   }
@@ -42,7 +42,7 @@ function ColorPicker(props : any ) {
   }
 
   // send data back to home page for the hero bg image color and opacity
-  props.setHeroColor(heroColorData)
+  // props.setHeroColor(heroColorData)
   props.setHeroOpacity(opacity)
   return(
   <>

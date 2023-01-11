@@ -8,6 +8,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Gradient } from '@mui/icons-material';
 
 function Copyright(props: any) {
   return (
@@ -24,12 +25,21 @@ function Copyright(props: any) {
 
 const theme = createTheme({
   palette: {
-    primary:{
-      main: '#d0e9ee'
+    primary: {
+      main: '#d0e9ee',
     },
   },
   typography: {
-    fontFamily: 'Open Sans'
+    fontFamily: 'Open Sans',
+  },
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          backgroundImage: `linear-gradient(25deg, #8dcad3 0%, #b9b2e3 60%)`
+        }
+      }
+    }
   }
 });
 
@@ -61,7 +71,7 @@ export default function SignUp() {
           <Typography component="h1" variant="h5">
             Login
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3}}>
+          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={1}>
               <Grid item xs={12}>
                 <TextField
@@ -98,7 +108,7 @@ export default function SignUp() {
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="/signup" variant="body2">
-                  No Account? Signup now
+                  No Account? Signup
                 </Link>
               </Grid>
             </Grid>

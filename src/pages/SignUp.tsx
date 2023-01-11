@@ -30,6 +30,15 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: 'Open Sans'
+  },
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          backgroundImage: `linear-gradient(125deg, #8ea6cb 20%, #ce8da6 80%)`
+        }
+      }
+    }
   }
 });
 

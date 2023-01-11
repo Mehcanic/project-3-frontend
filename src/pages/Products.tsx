@@ -29,8 +29,7 @@ function Products() {
       return (
         <div key={product.name}>
           <p >{product.name}</p>
-          <img src={product.images[0].image_shape1} alt="" />
-
+          <img src={product.images[3].image_shape1} alt="" />
         </div>
       )
       })}

@@ -17,7 +17,7 @@ import { HashLink } from 'react-router-hash-link'
 import { CssBaseline } from '@mui/material';
 
 
-const pagesAll = ['Products', 'Custom', 'About', 'Contact', 'Login', 'Signup'];
+const pagesAll = ['products', 'custom', 'about', 'contact', 'login', 'signup'];
 const basket = ['product1', 'product2', 'product3'];
 
 function NavBar() {

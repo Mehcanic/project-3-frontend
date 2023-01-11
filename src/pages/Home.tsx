@@ -19,15 +19,15 @@ function Home() {
   console.log(heroStyle)
   return (
     <>
-      <Container fixed>
-        <Grid container direction="row" justifyContent="center" alignItems="center">
+      <Container fixed sx={{mt: "30px", pb: "30px"}}>
+        <Grid container spacing={2} direction="row" justifyContent="center" alignItems="center">
 
-          <Grid item xs={12} lg={6} md={6} sx={{display: "flex", justifyContent: "center", border: 1 }}>
+          <Grid item xs={12} lg={6} md={6} sx={{display: "flex", justifyContent: "center"}}>
             <Typography variant="h1" color="black" fontSize={70} width="483px" fontFamily="Oswald">
               Embrace Your Style With Custom Colours
             </Typography>
           </Grid>
-          <Grid item xs={12} lg={6} md={6} sx={{display: "flex", flexDirection: "column", alignItems: "center", border: 1 }}>
+          <Grid item xs={12} lg={6} md={6} sx={{display: "flex", flexDirection: "column", alignItems: "center"}}>
             {/* <div style={heroStyle}></div> */}
             <ColorPicker
               setHeroColor={setHeroColor}
@@ -35,8 +35,8 @@ function Home() {
             />
           </Grid>
         </Grid>
-        <Grid container>
-          <Grid item xs={12} lg={6} md={6} sx={{display: "flex", flexDirection: "row", justifyContent: "center", border: 2}}>
+        <Grid container sx={{mt:"20px"}}>
+          <Grid item xs={12} lg={6} md={6} sx={{display: "flex", flexDirection: "row", justifyContent: "center"}}>
             <Button variant="contained" sx={{ background: "#446dbb", height: "40px", borderRadius: "7px" }}>BROWSE COLOURS</Button>
             <Button variant="outlined" sx={{ background: "white", border: "1px solid #446dbb", height: "40px", borderRadius: "7px" }}> CREATE CUSTOM</Button>
           </Grid>

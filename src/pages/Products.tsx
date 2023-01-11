@@ -2,7 +2,7 @@ import React from "react";
 import CollectionsHero from "../components/CollectionsHero";
 
 function Products() {
-  const [products, setProducts] = React.useState([])
+  const [products, setProducts] = React.useState<any>([])
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(false);
   
@@ -20,16 +20,23 @@ function Products() {
   React.useEffect(() => {
     getProducts()
   },[])
+  // console.log(products[0].images[0].image_shape1)
 
-  return products?.map((product: any) => {
-    return (
-      <>
-        <p>{product.name}</p>
-        <img src={product.images.image_shape1} alt="" />
-      
-      </>
-    )
-  })
+  return (
+    <>
+    <img src={products[0].images[0].image_shape1}/>
+      {products?.map((product: any) => {
+      return (
+        <div key={product.name}>
+          <p >{product.name}</p>
+          <img src={product.images[0].image_shape1} alt="" />
+
+        </div>
+      )
+      })}
+    
+    </>
+  )
 }
 
 export default Products

@@ -8,10 +8,10 @@ import Contact from "../components/Contact";
 import ColorPicker from "../components/ColorPicker";
 
 function Home() {
-
+// ! heroColor and heroOpacity renders twice because of colorPicker. Find a fix for this later because it works only the warning is annoying.
   const [heroColor, setHeroColor] = React.useState<string>("250, 0, 0")
   const [heroOpacity, setHeroOpacity] = React.useState<Number>(1)
-  console.log(heroColor)
+  console.log(typeof heroColor[1])
 
   const heroStyle = {
     backgroundColor: `rgb(${heroColor}, ${String(heroOpacity)})`,

@@ -21,14 +21,13 @@ function ColorPicker(props : any ) {
   const [currentColor, setCurrentColor] = React.useState<string>('#fff')
   const [opacity, setOpacity] = React.useState<Number>(1)
   const [heroColorData, setHeroColorData] = React.useState<Array<Number>>([0, 250, 0])
-  console.log(typeof currentColor)
 
   function handleChange(color: any){
     const sortRgba = Object.keys(color.rgb).map((value: any) => {
       return color.rgb[value]
     })
     sortRgba.pop()
-    // setHeroColorData(sortRgba)
+    setHeroColorData(sortRgba)
     setCurrentColor(color.hex!)
     setOpacity(color.hsl!.a)
   }
@@ -42,7 +41,7 @@ function ColorPicker(props : any ) {
   }
 
   // send data back to home page for the hero bg image color and opacity
-  // props.setHeroColor(heroColorData)
+  props.setHeroColor(heroColorData)
   props.setHeroOpacity(opacity)
   return(
   <>

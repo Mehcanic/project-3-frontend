@@ -1,13 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
 import Avatar from '@mui/material/Avatar';
-import Box from '@mui/material/Box';
 
-import { positions } from '@mui/system';
 
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -21,7 +17,7 @@ function Contact() {
           <Typography gutterBottom mb={6} mt={4} variant="h3" align="center" sx={{ fontFamily: 'Oswald', fontWeight: '200' }}>
             CONTACT
           </Typography>
-          {/* <Box sx={{ flexGrow: 1 }}> */}
+
           <Grid container spacing={0}>
 
             <Grid item xs={12} lg={4} md={4} sm={12} sx={{ display: 'flex', flexDirection: 'column', backgroundColor: '#d0dbee', p: 2 }}>
@@ -101,7 +97,6 @@ function Contact() {
 
           </Grid>
 
-          {/* </Box> */}
         </Container>
       </div>
 

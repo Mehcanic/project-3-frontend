@@ -59,7 +59,7 @@ function NavBar() {
 
   return (
     <AppBar position="static" color="default">
-      <Container maxWidth="xl">
+      <Container fixed>
         <Toolbar disableGutters >
           
 

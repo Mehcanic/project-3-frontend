@@ -65,9 +65,18 @@ export default function SignUp() {
 
   async function handleSubmit(e: SyntheticEvent) {
     e.preventDefault()
+    let isValid = true
+    if (Object.values(formData).some((val) => !val)) {
+      isValid = false
+    }
+    
+    if(!isValid) {
+      alert("Please fill all the fields!")
+      return
+    }
+
     try {
       await axios.post('api/signup', formData)
-      console.log(formData)
       navigate('/login')
     } catch (error: any) {
       setErrorData(error.response.data.errors)

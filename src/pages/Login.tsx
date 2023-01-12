@@ -75,6 +75,7 @@ export default function Login({ fetchUser }: { fetchUser: Function }) {
         navigate('/')
         refreshPage()
       } else {
+        alert("Incorrect login details!")
         setErrorMessage("Invalid login details")
       }
       

@@ -53,28 +53,25 @@ const theme = createTheme({
 export default function Login({ fetchUser }: { fetchUser: Function }) {
   const navigate = useNavigate()
   const [errorMessage, setErrorMessage] = React.useState("")
-
+  
   const [formData, setFormData] = React.useState({
     email: "",
     password: ""
   })
   
-  function refreshPage() {
-    window.location.reload()
-  }
+  // const refreshPage = () => {
+  //   window.location.reload()
+  // }
 
   async function handleSubmit(e: SyntheticEvent) {
     e.preventDefault()
     try {
       const { data } = await axios.post('api/login', formData)
-      console.log(data)
       const token = data.token
-      console.log(data.token)
       localStorage.setItem('token', token)
-
       fetchUser()
       navigate('/')
-      refreshPage()
+      // refreshPage()
     } catch (error: any) {
       console.log(error)
       setErrorMessage(error.response.data.message)

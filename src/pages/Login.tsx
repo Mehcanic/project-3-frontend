@@ -106,7 +106,7 @@ export default function Login({ fetchUser }: { fetchUser: Function }) {
           <Link href="/">
             <img style={{ height: '100px' }} src="src/images/kleur-logo.png" alt="logoImage" />
           </Link>
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h5" fontFamily='Open Sans'>
             Login
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>

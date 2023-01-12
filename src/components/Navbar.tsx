@@ -129,7 +129,6 @@ function NavBar() {
                   display: { xs: 'block', md: 'none' },
                 }}
               >
-                <MenuItem onClick={handleCloseNavMenu} sx={{ flexDirection: 'column', alignItems: 'flex-start', backgroundImage: `linear-gradient(125deg, #8ea6cb 20%, #ce8da6 80%)` }}>
                   <MenuItem>
                     <Link to='/products' style={pageStyle}>collections</Link>
                   </MenuItem>
@@ -148,9 +147,6 @@ function NavBar() {
                   <MenuItem>
                     <Link to='/signup' style={pageStyle}>signup</Link>
                   </MenuItem> 
-
-                </MenuItem>
-
               </Menu>
             </Box>
 

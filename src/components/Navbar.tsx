@@ -21,6 +21,19 @@ const pagesAll = ['products', 'custom', 'about', 'contact', 'login', 'signup'];
 const basket = ['product1', 'product2', 'product3'];
 
 function NavBar() {
+  // State and function for changing login to logout text
+  const [token, setToken] = React.useState(localStorage.getItem("token") || null)
+  const [loginText, setLoginText] = React.useState('login')
+
+  React.useEffect(() => {
+    if(token) {
+      setLoginText("logout")
+    } else {
+      setLoginText("login")
+    }
+  }, [token])
+
+
   const [navMenu, setNavMenu] = React.useState<null | HTMLElement>(null);
   const [basketItems, setBasketItems] = React.useState<null | HTMLElement>(null);
 
@@ -122,7 +135,7 @@ function NavBar() {
                     <HashLink smooth to='/#contact' style={pageStyle}>contact</HashLink>
                   </MenuItem>
                   <MenuItem>
-                    <Link to='/login' style={pageStyle}>login</Link>
+                    <Link to='/login' style={pageStyle}>{loginText}</Link>
                   </MenuItem>
                   <MenuItem>
                     <Link to='/signup' style={pageStyle}>signup</Link>
@@ -147,7 +160,7 @@ function NavBar() {
               <HashLink smooth to='/#contact' style={pageStyle}>contact</HashLink>
             </Box>
             <Box component="div" sx={{ flexGrow: 0.5, display: { xs: 'none', md: 'flex' } }}>
-              <Link to='/login' style={logSignStyle}>login</Link>
+              <Link to='/login' style={logSignStyle}>{loginText}</Link>
               <Link to='/signup' style={logSignStyle}>signup</Link>
             </Box>
 

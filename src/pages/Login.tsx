@@ -8,7 +8,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Gradient, LineAxisOutlined } from '@mui/icons-material';
+import { Gradient, LineAxisOutlined, Refresh } from '@mui/icons-material';
 
 // Lukasz's stuff
 import { SyntheticEvent, useState } from 'react'
@@ -43,7 +43,7 @@ const theme = createTheme({
     MuiCssBaseline: {
       styleOverrides: {
         body: {
-          backgroundImage: `linear-gradient(25deg, #8dcad3 0%, #b9b2e3 60%)`
+          backgroundImage: `linear-gradient(125deg, #8ea6cb 20%, #ce8da6 80%)`
         }
       }
     }
@@ -52,25 +52,32 @@ const theme = createTheme({
 
 export default function Login({ fetchUser }: { fetchUser: Function }) {
   const navigate = useNavigate()
+  const [errorMessage, setErrorMessage] = React.useState("")
   
   const [formData, setFormData] = React.useState({
     email: "",
     password: ""
   })
-  const [errorMessage, setErrorMessage] = React.useState("")
+  
+  const refreshPage = () => {
+    window.location.reload()
+  }
 
   async function handleSubmit(e: SyntheticEvent) {
     e.preventDefault()
     try {
       const { data } = await axios.post('api/login', formData)
-      console.log(data)
       const token = data.token
-      console.log(data.token)
-      localStorage.setItem('token', token)
 
-      fetchUser()
-      navigate('/')
-
+      if(token) {
+        localStorage.setItem('token', token)
+        fetchUser()
+        navigate('/')
+        refreshPage()
+      } else {
+        setErrorMessage("Invalid login details")
+      }
+      
     } catch (error: any) {
       console.log(error)
       setErrorMessage(error.response.data.message)
@@ -83,15 +90,6 @@ export default function Login({ fetchUser }: { fetchUser: Function }) {
     setFormData(newFormData)
     setErrorMessage("")
   }
-
-  // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-  //   event.preventDefault();
-  //   const data = new FormData(event.currentTarget);
-  //   console.log({
-  //     email: data.get('email'),
-  //     password: data.get('password'),
-  //   });
-  // };
 
   return (
     <ThemeProvider theme={theme}>
@@ -108,7 +106,7 @@ export default function Login({ fetchUser }: { fetchUser: Function }) {
           <Link href="/">
             <img style={{ height: '100px' }} src="src/images/kleur-logo.png" alt="logoImage" />
           </Link>
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h5" fontFamily='Open Sans'>
             Login
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>

@@ -16,11 +16,34 @@ import { Link } from "react-router-dom";
 import { HashLink } from 'react-router-hash-link'
 import { CssBaseline } from '@mui/material';
 
+import { useNavigate } from 'react-router-dom';
 
 const pagesAll = ['products', 'custom', 'about', 'contact', 'login', 'signup'];
 const basket = ['product1', 'product2', 'product3'];
 
 function NavBar() {
+  // State and function for changing login to logout text - LB
+  const navigate = useNavigate()
+  const [token, setToken] = React.useState(localStorage.getItem("token") || null)
+  const [loginText, setLoginText] = React.useState('login')
+
+  React.useEffect(() => {
+    if(token) {
+      setLoginText("logout")
+    } else {
+      setLoginText("login")
+    }
+  }, [token])
+
+  const handleLogout = () => {
+    if(loginText === "logout")
+    localStorage.removeItem("token")
+    setToken(null)
+    navigate('/login')
+  }
+
+  // LB
+
   const [navMenu, setNavMenu] = React.useState<null | HTMLElement>(null);
   const [basketItems, setBasketItems] = React.useState<null | HTMLElement>(null);
 
@@ -46,7 +69,6 @@ function NavBar() {
     color: 'black',
   };
 
-
   const logSignStyle = {
     margin: "1rem",
     padding: "0.1rem 1.5rem",
@@ -55,7 +77,6 @@ function NavBar() {
     color: 'white',
     backgroundColor: '#426da2',
   }
-
 
   const theme = createTheme({
     typography: {
@@ -108,7 +129,6 @@ function NavBar() {
                   display: { xs: 'block', md: 'none' },
                 }}
               >
-                <MenuItem onClick={handleCloseNavMenu} sx={{ flexDirection: 'column', alignItems: 'flex-start', backgroundImage: `linear-gradient(125deg, #8ea6cb 20%, #ce8da6 80%)` }}>
                   <MenuItem>
                     <Link to='/products' style={pageStyle}>collections</Link>
                   </MenuItem>
@@ -122,14 +142,11 @@ function NavBar() {
                     <HashLink smooth to='/#contact' style={pageStyle}>contact</HashLink>
                   </MenuItem>
                   <MenuItem>
-                    <Link to='/login' style={pageStyle}>login</Link>
+                    <Link to='/login' style={pageStyle} onClick={handleLogout}>{loginText}</Link>
                   </MenuItem>
                   <MenuItem>
                     <Link to='/signup' style={pageStyle}>signup</Link>
-                  </MenuItem>
-
-                </MenuItem>
-
+                  </MenuItem> 
               </Menu>
             </Box>
 
@@ -147,7 +164,7 @@ function NavBar() {
               <HashLink smooth to='/#contact' style={pageStyle}>contact</HashLink>
             </Box>
             <Box component="div" sx={{ flexGrow: 0.5, display: { xs: 'none', md: 'flex' } }}>
-              <Link to='/login' style={logSignStyle}>login</Link>
+              <Link to='/login' style={logSignStyle} onClick={handleLogout}>{loginText}</Link>
               <Link to='/signup' style={logSignStyle}>signup</Link>
             </Box>
 

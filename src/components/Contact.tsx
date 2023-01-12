@@ -1,4 +1,3 @@
-import React from "react";
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
@@ -13,7 +12,7 @@ function Contact() {
   return (
     <>
       <div id="contact">
-        <Container maxWidth='xl'>
+        <Container fixed sx={{pb: '200px'}}>
           <Typography gutterBottom mb={6} mt={4} variant="h3" align="center" sx={{ fontFamily: 'Oswald', fontWeight: '200' }}>
             CONTACT
           </Typography>

@@ -1,35 +1,13 @@
-import React from 'react';
-import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Tooltip from '@mui/material/Tooltip';
-import Divider from '@mui/material/Divider';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
-import MenuItem from '@mui/material/MenuItem';
-import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
-import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
-
+import { createTheme } from '@mui/material/styles';
+import Divider from '@mui/material/Divider';
 import { FaCcVisa, FaCcMastercard, FaCcAmex, FaCcPaypal, FaCcApplePay } from 'react-icons/fa'
 import { CssBaseline } from '@mui/material';
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="/">
-        KLEUR
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import Copyright from './Copyright';
 
 const theme = createTheme({
   palette: {
@@ -45,34 +23,45 @@ const theme = createTheme({
 function Footer() {
   return (
     <>
-      <Container>
-        <CssBaseline />
-        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-          <Grid item xs={6}>
-            <Link href="/">
-              <img style={{ height: '70px' }} src="src/images/kleur-logo.png" alt="logoImage" />
-            </Link>
+      <Box sx={{ backgroundColor: '#A9BCDF' }}>
+        <Container fixed>
+          <CssBaseline />
+          <Grid container direction='row' spacing={5}>
+            <Grid item xs={6} md={3} lg={3} sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
+              <Link href='/'>
+                <img style={{ height: '70px' }} src='src/images/kleur-logo.png' alt='logoImage' />
+              </Link>
+            </Grid>
+            <Grid item xs={6} md={3} lg={3} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between' }} >
+              <Typography fontFamily="Oswald" fontSize={20} fontWeight="bold" >About Us</Typography>
+              <Typography>contact</Typography>
+            </Grid>
+
+            <Grid item xs={6} md={3} lg={3} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between' }} >
+              <Typography fontFamily="Oswald" fontSize={20} fontWeight="bold">Terms & Conditions</Typography>
+              <Typography>privacy policy</Typography>
+              <Typography>licensing</Typography>
+            </Grid>
+
+            <Grid item xs={6} md={3} lg={3} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between'}}>
+              <Typography fontFamily="Oswald" fontSize={20} fontWeight="bold">Pay With</Typography>
+              <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '125px' }}>
+                <FaCcMastercard />
+                <FaCcVisa />
+                <FaCcPaypal />
+                <FaCcApplePay />
+                <FaCcAmex />
+              </Box>
+
+            </Grid>
           </Grid>
-          <Grid item xs={6} sx={{ display: 'flex', flexDirection: 'row' }} >
-            <Typography>Link 1</Typography>
-            <Typography>Link 2</Typography>
-            <Typography>Link 3</Typography>
-            <Typography>Link 4</Typography>
-          </Grid>
-          
-          <Grid item xs={6}>
+          <Divider variant="middle" sx={{mt: '25px', mb: '10px'}}/>
+          <Grid xs={3} lg={6} pb="10px">
             <Copyright />
           </Grid>
-          <Grid item xs={6} sx={{ display: 'flex', flexDirection: 'row' }}>
-            <Typography>Accepted Payments</Typography>
-            <FaCcMastercard />
-            <FaCcVisa />
-            <FaCcPaypal />
-            <FaCcApplePay />
-            <FaCcAmex />
-          </Grid>
-        </Grid>
-      </Container>
+        </Container>
+      </Box>
+      <Container fixed sx={{backgroundImage: 'linear-gradient(90deg, #BB9244, #446DBB)', height: '20px'}}></Container>
 
     </>
   )

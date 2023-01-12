@@ -1,6 +1,6 @@
 import React from 'react'
 import { HuePicker, AlphaPicker, InjectedColorProps, RGBColor } from 'react-color'
-import { Stack } from '@mui/material'
+import { Grid } from '@mui/material'
 
 
 interface HSLColors {
@@ -17,12 +17,12 @@ interface ColorResults {
 }
 
 type ReactColorTypes = InjectedColorProps | ColorResults
-function ColorPicker(props : any ) {
+function ColorPicker(props: any) {
   const [currentColor, setCurrentColor] = React.useState<string>('#fff')
   const [opacity, setOpacity] = React.useState<Number>(1)
   const [heroColorData, setHeroColorData] = React.useState<Array<Number>>([0, 250, 0])
 
-  function handleChange(color: any){
+  function handleChange(color: any) {
     const sortRgba = Object.keys(color.rgb).map((value: any) => {
       return color.rgb[value]
     })
@@ -31,7 +31,7 @@ function ColorPicker(props : any ) {
     setCurrentColor(color.hex!)
     setOpacity(color.hsl!.a)
   }
-  
+
   const hueCircle = {
     background: `${currentColor}`,
     opacity: `${opacity}`,
@@ -43,20 +43,27 @@ function ColorPicker(props : any ) {
   // send data back to home page for the hero bg image color and opacity
   props.setHeroColor(heroColorData)
   props.setHeroOpacity(opacity)
-  return(
-  <>
-    <div style={hueCircle}></div>
-    <Stack spacing={2}>
-      <HuePicker 
-        color={currentColor}
-        onChange={handleChange}
-      />
-      <AlphaPicker
-        color={currentColor} 
-        onChange={handleChange}
-      />
-    </Stack>
-  </>
+  return (
+    <>
+      <Grid container spacing={2} direction="row" justifyContent="center" alignItems="center">
+        <Grid item>
+          <div style={hueCircle}></div>
+        </Grid>
+        <Grid item sx={{ display: 'flex', flexDirection: 'column', }}>
+          <HuePicker
+            color={currentColor}
+            onChange={handleChange}
+          />
+
+        </Grid>
+        <Grid item>
+          <AlphaPicker
+            color={currentColor}
+            onChange={handleChange}
+          />
+        </Grid>
+      </Grid>
+    </>
   )
 }
 

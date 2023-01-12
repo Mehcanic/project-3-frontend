@@ -65,6 +65,7 @@ function NavBar() {
 
   return (
     <ThemeProvider theme={theme}>
+      <div id="home"></div>
       <AppBar position="static" color="default">
 
           <Container fixed>

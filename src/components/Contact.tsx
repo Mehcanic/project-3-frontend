@@ -108,5 +108,3 @@ export default Contact
 
 
 
-  // < Link to = {{ pathname: "https://www.linkedin.com/in/robwilhelmsson/" }} target = "_blank" ></Link >
-

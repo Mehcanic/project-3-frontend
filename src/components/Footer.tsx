@@ -23,7 +23,7 @@ const theme = createTheme({
 function Footer() {
   return (
     <>
-      <Box sx={{ backgroundColor: '#A9BCDF' }}>
+      <Box component='div' sx={{ background: '#A9BCDF' }}>
         <Container fixed>
           <CssBaseline />
           <Grid container direction='row' spacing={5}>
@@ -32,12 +32,12 @@ function Footer() {
                 <img style={{ height: '70px' }} src='src/images/kleur-logo.png' alt='logoImage' />
               </Link>
             </Grid>
-            <Grid item xs={6} md={3} lg={3} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between' }} >
+            <Grid item xs={6} md={3} lg={3} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} >
               <Typography fontFamily="Oswald" fontSize={20} fontWeight="bold" >About Us</Typography>
               <Typography>contact</Typography>
             </Grid>
 
-            <Grid item xs={6} md={3} lg={3} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between' }} >
+            <Grid item xs={6} md={3} lg={3} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} >
               <Typography fontFamily="Oswald" fontSize={20} fontWeight="bold">Terms & Conditions</Typography>
               <Typography>privacy policy</Typography>
               <Typography>licensing</Typography>
@@ -45,7 +45,7 @@ function Footer() {
 
             <Grid item xs={6} md={3} lg={3} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between'}}>
               <Typography fontFamily="Oswald" fontSize={20} fontWeight="bold">Pay With</Typography>
-              <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '125px' }}>
+              <Box component='div' sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '125px' }}>
                 <FaCcMastercard />
                 <FaCcVisa />
                 <FaCcPaypal />
@@ -56,13 +56,11 @@ function Footer() {
             </Grid>
           </Grid>
           <Divider variant="middle" sx={{mt: '25px', mb: '10px'}}/>
-          <Grid xs={3} lg={6} pb="10px">
+          <Grid item xs={3} lg={6} pb="10px">
             <Copyright />
           </Grid>
         </Container>
       </Box>
-      <Container fixed sx={{backgroundImage: 'linear-gradient(90deg, #BB9244, #446DBB)', height: '20px'}}></Container>
-
     </>
   )
 }

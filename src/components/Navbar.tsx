@@ -72,14 +72,14 @@ function NavBar() {
             <Toolbar disableGutters >
             <CssBaseline />
               {/* Logo for large window */}
-              <Box sx={{ display: { xs: 'none', md: 'flex' }, mr: 5 }}>
+              <Box component='div' sx={{ display: { xs: 'none', md: 'flex' }, mr: 5 }}>
                 <Link to='/'>
                   <img style={{ height: '100px', paddingTop: '10px' }} src="src/images/kleur-logo.png" alt="logoImage" />
                 </Link>
               </Box>
 
               {/* Burger menu for mobile */}
-              <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, color: "black" }}>
+              <Box component='div' sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, color: "black" }}>
                 <IconButton
                   size="large"
                   aria-label="account of current user"
@@ -117,24 +117,24 @@ function NavBar() {
               </Box>
 
               {/* Logo for mobile */}
-              <Box sx={{ display: { xs: 'flex', md: 'none' }, mr: 3 }}>
+              <Box component='div' sx={{ display: { xs: 'flex', md: 'none' }, mr: 3 }}>
                 <Link to='/'>
                   <img style={{ height: '100px', paddingTop: '10px' }} src="src/images/kleur-logo.png" alt="logoImage" />
                 </Link>
               </Box>
 
-              <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+              <Box component='div' sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                 <Link to='/products' style={pageStyle}>collections</Link>
                 <Link to='/custom' style={pageStyle}>custom</Link>
                 <HashLink smooth to='/#about' style={pageStyle}>about</HashLink>
                 <HashLink smooth to='/#contact' style={pageStyle}>contact</HashLink>
               </Box>
-              <Box sx={{ flexGrow: 0.5, display: { xs: 'none', md: 'flex' } }}>
+              <Box component='div' sx={{ flexGrow: 0.5, display: { xs: 'none', md: 'flex' } }}>
                 <Link to='/login' style={logSignStyle}>login</Link>
                 <Link to='/signup' style={logSignStyle}>signup</Link>
               </Box>
 
-              <Box sx={{ flexGrow: 0 }}>
+              <Box component='div' sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenBasketMenu} sx={{ p: 0 }}>
                     <ShoppingBasketIcon />

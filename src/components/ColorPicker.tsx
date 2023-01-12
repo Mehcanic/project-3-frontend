@@ -18,7 +18,7 @@ interface ColorResults {
 
 type ReactColorTypes = InjectedColorProps | ColorResults
 function ColorPicker(props: any) {
-  const [currentColor, setCurrentColor] = React.useState<string>('#fff')
+  const [currentColor, setCurrentColor] = React.useState<string>('#ff6')
   const [opacity, setOpacity] = React.useState<Number>(1)
   const [heroColorData, setHeroColorData] = React.useState<Array<Number>>([0, 250, 0])
 
@@ -46,9 +46,6 @@ function ColorPicker(props: any) {
   return (
     <>
       <Grid container spacing={2} direction="row" justifyContent="center" alignItems="center">
-        <Grid item>
-          <div style={hueCircle}></div>
-        </Grid>
         <Grid item sx={{ display: 'flex', flexDirection: 'column', }}>
           <HuePicker
             color={currentColor}

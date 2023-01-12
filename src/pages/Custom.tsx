@@ -1,7 +1,12 @@
 import React from "react";
+import Renderer from "../components/Renderer";
 
 function Custom() {
-  return <h1>Custom Page</h1>
+  return (
+    <>
+      <Renderer />
+    </>
+  )
 }
 
 export default Custom

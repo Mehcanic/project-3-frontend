@@ -21,18 +21,17 @@ const pagesAll = ['products', 'custom', 'about', 'contact', 'login', 'signup'];
 const basket = ['product1', 'product2', 'product3'];
 
 function NavBar() {
-  // State and function for changing login to logout text
+  // State and function for changing login to logout text - LB
   const [token, setToken] = React.useState(localStorage.getItem("token") || null)
   const [loginText, setLoginText] = React.useState('login')
 
-  React.useEffect(() => {
+    React.useEffect(() => {
     if(token) {
       setLoginText("logout")
     } else {
       setLoginText("login")
     }
   }, [token])
-
 
   const [navMenu, setNavMenu] = React.useState<null | HTMLElement>(null);
   const [basketItems, setBasketItems] = React.useState<null | HTMLElement>(null);
@@ -59,7 +58,6 @@ function NavBar() {
     color: 'black',
   };
 
-
   const logSignStyle = {
     margin: "1rem",
     padding: "0.1rem 1.5rem",
@@ -68,7 +66,6 @@ function NavBar() {
     color: 'white',
     backgroundColor: '#426da2',
   }
-
 
   const theme = createTheme({
     typography: {

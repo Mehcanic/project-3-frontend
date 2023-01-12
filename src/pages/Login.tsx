@@ -8,7 +8,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Gradient, LineAxisOutlined } from '@mui/icons-material';
+import { Gradient, LineAxisOutlined, Refresh } from '@mui/icons-material';
 
 // Lukasz's stuff
 import { SyntheticEvent, useState } from 'react'
@@ -52,12 +52,16 @@ const theme = createTheme({
 
 export default function Login({ fetchUser }: { fetchUser: Function }) {
   const navigate = useNavigate()
-  
+  const [errorMessage, setErrorMessage] = React.useState("")
+
   const [formData, setFormData] = React.useState({
     email: "",
     password: ""
   })
-  const [errorMessage, setErrorMessage] = React.useState("")
+  
+  function refreshPage() {
+    window.location.reload()
+  }
 
   async function handleSubmit(e: SyntheticEvent) {
     e.preventDefault()
@@ -70,7 +74,7 @@ export default function Login({ fetchUser }: { fetchUser: Function }) {
 
       fetchUser()
       navigate('/')
-
+      refreshPage()
     } catch (error: any) {
       console.log(error)
       setErrorMessage(error.response.data.message)
@@ -83,15 +87,6 @@ export default function Login({ fetchUser }: { fetchUser: Function }) {
     setFormData(newFormData)
     setErrorMessage("")
   }
-
-  // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-  //   event.preventDefault();
-  //   const data = new FormData(event.currentTarget);
-  //   console.log({
-  //     email: data.get('email'),
-  //     password: data.get('password'),
-  //   });
-  // };
 
   return (
     <ThemeProvider theme={theme}>

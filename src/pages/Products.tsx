@@ -24,11 +24,10 @@ function Products() {
 
   return (
     <>
-    <img src={products[0].images[0].image_shape1}/>
       {products?.map((product: any) => {
       return (
         <div key={product.name}>
-          <p >{product.name}</p>
+          <p>{product.name}</p>
           <img src={product.images[3].image_shape1} alt="" />
         </div>
       )

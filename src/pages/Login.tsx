@@ -97,7 +97,7 @@ export default function Login({ fetchUser }: { fetchUser: Function }) {
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
-        <Box
+        <Box component="div"
           sx={{
             marginTop: 6,
             display: 'flex',

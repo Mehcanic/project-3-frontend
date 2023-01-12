@@ -46,7 +46,7 @@ function Footer() {
             <Grid item xs={6} md={3} lg={3} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between'}}>
               <Typography fontFamily="Oswald" fontSize={20} fontWeight="bold">Pay With</Typography>
               <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '125px' }}>
-                <FaCcMastercard />
+                <FaCcMastercard/>
                 <FaCcVisa />
                 <FaCcPaypal />
                 <FaCcApplePay />

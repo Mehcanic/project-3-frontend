@@ -68,103 +68,120 @@ function NavBar() {
       <div id="home"></div>
       <AppBar position="static" color="default">
 
-          <Container fixed>
-            <Toolbar disableGutters >
+        <Container fixed>
+          <Toolbar disableGutters >
             <CssBaseline />
-              {/* Logo for large window */}
-              <Box sx={{ display: { xs: 'none', md: 'flex' }, mr: 5 }}>
-                <Link to='/'>
-                  <img style={{ height: '100px', paddingTop: '10px' }} src="src/images/kleur-logo.png" alt="logoImage" />
-                </Link>
-              </Box>
+            {/* Logo for large window */}
+            <Box sx={{ display: { xs: 'none', md: 'flex' }, mr: 5 }}>
+              <Link to='/'>
+                <img style={{ height: '100px', paddingTop: '10px' }} src="src/images/kleur-logo.png" alt="logoImage" />
+              </Link>
+            </Box>
 
-              {/* Burger menu for mobile */}
-              <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, color: "black" }}>
-                <IconButton
-                  size="large"
-                  aria-label="account of current user"
-                  aria-controls="menu-appbar"
-                  aria-haspopup="true"
-                  onClick={handleOpenNavMenu}
-                  color="inherit"
-                >
-                  <MenuIcon />
+            {/* Burger menu for mobile */}
+            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, color: "black" }}>
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                color="inherit"
+              >
+                <MenuIcon />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={navMenu}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'left',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'left',
+                }}
+                open={Boolean(navMenu)}
+                onClose={handleCloseNavMenu}
+                sx={{
+                  display: { xs: 'block', md: 'none' },
+                }}
+              >
+                <MenuItem onClick={handleCloseNavMenu} sx={{ flexDirection: 'column', alignItems: 'flex-start', backgroundImage: `linear-gradient(125deg, #8ea6cb 20%, #ce8da6 80%)` }}>
+                  <MenuItem>
+                    <Link to='/products' style={pageStyle}>collections</Link>
+                  </MenuItem>
+                  <MenuItem>
+                    <Link to='/custom' style={pageStyle}>custom</Link>
+                  </MenuItem>
+                  <MenuItem>
+                    <HashLink smooth to='/#about' style={pageStyle}>about</HashLink>
+                  </MenuItem>
+                  <MenuItem>
+                    <HashLink smooth to='/#contact' style={pageStyle}>contact</HashLink>
+                  </MenuItem>
+                  <MenuItem>
+                    <Link to='/login' style={pageStyle}>login</Link>
+                  </MenuItem>
+                  <MenuItem>
+                    <Link to='/signup' style={pageStyle}>signup</Link>
+                  </MenuItem>
+
+                </MenuItem>
+
+              </Menu>
+            </Box>
+
+            {/* Logo for mobile */}
+            <Box sx={{ display: { xs: 'flex', md: 'none' }, mr: 3 }}>
+              <Link to='/'>
+                <img style={{ height: '100px', paddingTop: '10px' }} src="src/images/kleur-logo.png" alt="logoImage" />
+              </Link>
+            </Box>
+
+            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+              <Link to='/products' style={pageStyle}>collections</Link>
+              <Link to='/custom' style={pageStyle}>custom</Link>
+              <HashLink smooth to='/#about' style={pageStyle}>about</HashLink>
+              <HashLink smooth to='/#contact' style={pageStyle}>contact</HashLink>
+            </Box>
+            <Box sx={{ flexGrow: 0.5, display: { xs: 'none', md: 'flex' } }}>
+              <Link to='/login' style={logSignStyle}>login</Link>
+              <Link to='/signup' style={logSignStyle}>signup</Link>
+            </Box>
+
+            <Box sx={{ flexGrow: 0 }}>
+              <Tooltip title="Open settings">
+                <IconButton onClick={handleOpenBasketMenu} sx={{ p: 0 }}>
+                  <ShoppingBasketIcon />
                 </IconButton>
-                <Menu
-                  id="menu-appbar"
-                  anchorEl={navMenu}
-                  anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'left',
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'left',
-                  }}
-                  open={Boolean(navMenu)}
-                  onClose={handleCloseNavMenu}
-                  sx={{
-                    display: { xs: 'block', md: 'none' },
-                  }}
-                >
-                  {pagesAll.map((page) => (
-                    <MenuItem key={page} onClick={handleCloseNavMenu}>
-                      <Typography textAlign="center">{page}</Typography>
-                    </MenuItem>
-                  ))}
-                </Menu>
-              </Box>
-
-              {/* Logo for mobile */}
-              <Box sx={{ display: { xs: 'flex', md: 'none' }, mr: 3 }}>
-                <Link to='/'>
-                  <img style={{ height: '100px', paddingTop: '10px' }} src="src/images/kleur-logo.png" alt="logoImage" />
-                </Link>
-              </Box>
-
-              <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                <Link to='/products' style={pageStyle}>collections</Link>
-                <Link to='/custom' style={pageStyle}>custom</Link>
-                <HashLink smooth to='/#about' style={pageStyle}>about</HashLink>
-                <HashLink smooth to='/#contact' style={pageStyle}>contact</HashLink>
-              </Box>
-              <Box sx={{ flexGrow: 0.5, display: { xs: 'none', md: 'flex' } }}>
-                <Link to='/login' style={logSignStyle}>login</Link>
-                <Link to='/signup' style={logSignStyle}>signup</Link>
-              </Box>
-
-              <Box sx={{ flexGrow: 0 }}>
-                <Tooltip title="Open settings">
-                  <IconButton onClick={handleOpenBasketMenu} sx={{ p: 0 }}>
-                    <ShoppingBasketIcon />
-                  </IconButton>
-                </Tooltip>
-                <Menu
-                  sx={{ mt: '45px' }}
-                  id="menu-appbar"
-                  anchorEl={basketItems}
-                  anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  open={Boolean(basketItems)}
-                  onClose={handleCloseBasketMenu}
-                >
-                  {basket.map((basket) => (
-                    <MenuItem key={basket} onClick={handleCloseBasketMenu}>
-                      <Typography textAlign="center">{basket}</Typography>
-                    </MenuItem>
-                  ))}
-                </Menu>
-              </Box>
-            </Toolbar>    
-          </Container>
+              </Tooltip>
+              <Menu
+                sx={{ mt: '45px' }}
+                id="menu-appbar"
+                anchorEl={basketItems}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={Boolean(basketItems)}
+                onClose={handleCloseBasketMenu}
+              >
+                {basket.map((basket) => (
+                  <MenuItem key={basket} onClick={handleCloseBasketMenu}>
+                    <Typography textAlign="center">{basket}</Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
+          </Toolbar>
+        </Container>
       </AppBar>
     </ThemeProvider>
   )

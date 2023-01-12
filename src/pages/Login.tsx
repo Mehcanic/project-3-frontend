@@ -8,7 +8,14 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Gradient } from '@mui/icons-material';
+import { Gradient, LineAxisOutlined } from '@mui/icons-material';
+
+// Lukasz's stuff
+import { SyntheticEvent, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios'
+import Products from './Products'
+
 
 function Copyright(props: any) {
   return (
@@ -43,21 +50,54 @@ const theme = createTheme({
   }
 });
 
-export default function SignUp() {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+export default function Login({ fetchUser }: { fetchUser: Function }) {
+  const navigate = useNavigate()
+  
+  const [formData, setFormData] = React.useState({
+    email: "",
+    password: ""
+  })
+  const [errorMessage, setErrorMessage] = React.useState("")
+
+  async function handleSubmit(e: SyntheticEvent) {
+    e.preventDefault()
+    try {
+      const { data } = await axios.post('api/login', formData)
+      console.log(data)
+      const token = data.token
+      console.log(data.token)
+      localStorage.setItem('token', token)
+
+      // fetchUser()
+      navigate('/')
+
+    } catch (error: any) {
+      console.log(error)
+      setErrorMessage(error.response.data.message)
+    }
+  }
+
+  function handleChange(e: any) {
+    const newFormData = structuredClone(formData)
+    newFormData[e.target.name] = e.target.value
+    setFormData(newFormData)
+    setErrorMessage("")
+  }
+
+  // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  //   event.preventDefault();
+  //   const data = new FormData(event.currentTarget);
+  //   console.log({
+  //     email: data.get('email'),
+  //     password: data.get('password'),
+  //   });
+  // };
 
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
-        <Box
+        <Box component="div"
           sx={{
             marginTop: 6,
             display: 'flex',
@@ -77,21 +117,26 @@ export default function SignUp() {
                 <TextField
                   required
                   fullWidth
-                  id="email"
                   label="Email Address"
                   name="email"
+                  type="email"
+                  id="email"
                   autoComplete="email"
+                  onChange={handleChange}
+                  value={formData.email}
                 />
               </Grid>
               <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
-                  name="password"
                   label="Password"
+                  name="password"
                   type="password"
                   id="password"
-                  autoComplete="new-password"
+                  autoComplete="password"
+                  onChange={handleChange}
+                  value={formData.password}
                 />
               </Grid>
               <Grid item xs={12}>

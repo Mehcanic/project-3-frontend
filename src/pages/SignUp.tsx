@@ -8,6 +8,12 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom';
+
+// Lukasz's stuff
+import { SyntheticEvent, useState } from 'react'
+import axios from 'axios'
+import Products from './Products'
 
 function Copyright(props: any) {
   return (
@@ -43,20 +49,55 @@ const theme = createTheme({
 });
 
 export default function SignUp() {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+  const navigate = useNavigate()
+
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    password: ""
+  })
+
+  const [errorData, setErrorData] = useState({
+    username: "",
+    email: "",
+    password: ""
+  })
+
+  async function handleSubmit(e: SyntheticEvent) {
+    e.preventDefault()
+    try {
+      await axios.post('api/signup', formData)
+      console.log(formData)
+      navigate('/login')
+    } catch (error: any) {
+      setErrorData(error.response.data.errors)
+    }
+  }
+
+  function handleChange(e: any) {
+    const newFormData = structuredClone(formData)
+    newFormData[e.target.name] = e.target.value 
+    setFormData(newFormData)
+
+    const newErrorData = structuredClone(errorData)
+    newErrorData[e.target.name] = ""
+    setErrorData(newErrorData)
+  }
+
+  // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  //   event.preventDefault();
+  //   const data = new FormData(event.currentTarget);
+  //   console.log({
+  //     email: data.get('email'),
+  //     password: data.get('password'),
+  //   });
+  // };
 
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
-        <Box
+        <Box component="div"
           sx={{
             marginTop: 6,
             display: 'flex',
@@ -74,12 +115,14 @@ export default function SignUp() {
             <Grid container spacing={1}>
               <Grid item xs={12}>
                 <TextField
-                  autoComplete="user-name"
-                  name="userName"
+                  label="Username"
+                  name="username"
+                  type="username"
+                  id="username"
+                  autoComplete="username"
+                  onChange={handleChange}
                   required
                   fullWidth
-                  id="userName"
-                  label="Username"
                   autoFocus
                 />
               </Grid>
@@ -87,21 +130,24 @@ export default function SignUp() {
                 <TextField
                   required
                   fullWidth
-                  id="email"
                   label="Email Address"
                   name="email"
+                  type="email"
+                  id="email"
                   autoComplete="email"
+                  onChange={handleChange}
                 />
               </Grid>
               <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
-                  name="password"
                   label="Password"
+                  name="password"
                   type="password"
                   id="password"
-                  autoComplete="new-password"
+                  autoComplete="password"
+                  onChange={handleChange}
                 />
               </Grid>
               <Grid item xs={12}>

@@ -126,7 +126,7 @@ function NavBar() {
                   </MenuItem>
                   <MenuItem>
                     <Link to='/signup' style={pageStyle}>signup</Link>
-                  </MenuItem>
+                  </MenuItem> 
 
                 </MenuItem>
 

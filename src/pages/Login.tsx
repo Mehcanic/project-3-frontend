@@ -59,19 +59,25 @@ export default function Login({ fetchUser }: { fetchUser: Function }) {
     password: ""
   })
   
-  // const refreshPage = () => {
-  //   window.location.reload()
-  // }
+  const refreshPage = () => {
+    window.location.reload()
+  }
 
   async function handleSubmit(e: SyntheticEvent) {
     e.preventDefault()
     try {
       const { data } = await axios.post('api/login', formData)
       const token = data.token
-      localStorage.setItem('token', token)
-      fetchUser()
-      navigate('/')
-      // refreshPage()
+
+      if(token) {
+        localStorage.setItem('token', token)
+        fetchUser()
+        navigate('/')
+        refreshPage()
+      } else {
+        setErrorMessage("Invalid login details")
+      }
+      
     } catch (error: any) {
       console.log(error)
       setErrorMessage(error.response.data.message)

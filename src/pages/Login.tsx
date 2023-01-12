@@ -68,7 +68,7 @@ export default function Login({ fetchUser }: { fetchUser: Function }) {
       console.log(data.token)
       localStorage.setItem('token', token)
 
-      // fetchUser()
+      fetchUser()
       navigate('/')
 
     } catch (error: any) {

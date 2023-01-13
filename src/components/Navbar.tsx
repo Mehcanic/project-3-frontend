@@ -157,13 +157,13 @@ function NavBar() {
               </Link>
             </Box>
 
-            <Box component="div" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            <Box component="div" sx={{ fontFamily: 'Open Sans', flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               <Link to='/products' style={pageStyle}>collections</Link>
               <Link to='/custom' style={pageStyle}>custom</Link>
               <HashLink smooth to='/#about' style={pageStyle}>about</HashLink>
               <HashLink smooth to='/#contact' style={pageStyle}>contact</HashLink>
             </Box>
-            <Box component="div" sx={{ flexGrow: 0.5, display: { xs: 'none', md: 'flex' } }}>
+            <Box component="div" sx={{ fontFamily: 'Open Sans', flexGrow: 0.5, display: { xs: 'none', md: 'flex' } }}>
               <Link to='/login' style={logSignStyle} onClick={handleLogout}>{loginText}</Link>
               <Link to='/signup' style={logSignStyle}>signup</Link>
             </Box>

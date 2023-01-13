@@ -23,8 +23,8 @@ const theme = createTheme({
 function Footer() {
   return (
     <>
-      <Box component='div' sx={{ background: '#A9BCDF' }}>
-        <Container fixed>
+      <Container fixed>
+        <Box component='div' sx={{ background: '#A9BCDF', mt: '50px' }}>
           <CssBaseline />
           <Grid container direction='row' spacing={5}>
             <Grid item xs={6} md={3} lg={3} sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
@@ -43,10 +43,10 @@ function Footer() {
               <Typography>licensing</Typography>
             </Grid>
 
-            <Grid item xs={6} md={3} lg={3} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between'}}>
+            <Grid item xs={6} md={3} lg={3} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between' }}>
               <Typography fontFamily="Oswald" fontSize={20} fontWeight="bold">Pay With</Typography>
               <Box component="div" sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '125px' }}>
-                <FaCcMastercard/>
+                <FaCcMastercard />
                 <FaCcVisa />
                 <FaCcPaypal />
                 <FaCcApplePay />
@@ -55,12 +55,12 @@ function Footer() {
 
             </Grid>
           </Grid>
-          <Divider variant="middle" sx={{mt: '25px', mb: '10px'}}/>
+          <Divider variant="middle" sx={{ mt: '25px', mb: '10px' }} />
           <Grid item xs={3} lg={6} pb="10px">
             <Copyright />
           </Grid>
-        </Container>
-      </Box>
+        </Box>
+      </Container>
     </>
   )
 }

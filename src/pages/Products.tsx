@@ -1,24 +1,17 @@
 import React from "react";
-import CssBaseline from "@mui/material/CssBaseline";
-import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import CardActionArea from '@mui/material/CardActionArea';
-import CardActions from '@mui/material/CardActions'
-import Button from "@mui/material/Button";
+import { CssBaseline, Container, Grid, Card, CardContent, CardMedia, Typography, CardActionArea, CardActions, Button, Paper } from "@mui/material";
 import { border, color } from "@mui/system";
-
+import ProductCard from "../components/ProductCard";
+import { IProduct }  from '../interface/product'
 function Products() {
-  const [products, setProducts] = React.useState<any>([])
+  const [products, setProducts] = React.useState<Array<IProduct> | []>([])
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(false);
   const [imageShape, setImageShape] = React.useState(0)
 
-function randomNum() {
-  return Math.floor(Math.random() * 4) + 1
-}
+  function randomNum() {
+    return Math.floor(Math.random() * 4) + 1
+  }
 
   const getProducts = async () => {
     setLoading(true);
@@ -26,7 +19,6 @@ function randomNum() {
     const data = await response.json();
     setProducts(data);
   };
-console.log(products)
   if (!products) {
     return <h1>Loading...</h1>
   }
@@ -40,38 +32,18 @@ console.log(products)
   return (
     <>
       <CssBaseline />
-      <Grid container spacing={0} justifyContent='center'>
-        {products.map((product: any) => {
-          console.log(product.images[0])
-          return (
-            <Grid key={product.name} sx={{border: 1, color: 'red'}}>
-              <Card key={product} sx={{ maxWidth: 200 }}>
-                <CardActionArea>
-                  <CardMedia
-                    component="img"
-                    height="140"
-                    image={product.images[0]}
-                    alt={product.name}
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h6" component="div">
-                      {product.name}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      £{product.price}
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-                <CardActions>
-                  <Button size="small" color="primary">
-                    ADD TO BASKET
-                  </Button>
-                </CardActions>
-              </Card>
+      <Container fixed sx={{mt: '10px'}}>
+        <Grid container spacing={4} direction="row">
+          {products.map((product: IProduct) => {
+            return (
+            <Grid item xs={12} lg={3} md={4} key={product.name}>
+              <ProductCard 
+              {...product}
+              />
             </Grid>
-          )
-        })}
-      </Grid>
+          )})}
+        </Grid>
+      </Container>
     </>
   )
 }

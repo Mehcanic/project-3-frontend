@@ -1,3 +1,4 @@
+import React from 'react'
 import { Container, Typography, Grid } from '@mui/material'
 
 function About() {

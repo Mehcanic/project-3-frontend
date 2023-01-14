@@ -1,3 +1,4 @@
+import React from 'react';
 import { Card, CardContent, CardMedia, Typography, Box, Button } from '@mui/material'
 import { IProduct } from '../interface/product'
 import Carousel from 'react-material-ui-carousel';

@@ -1,3 +1,4 @@
+import React from 'react';
 import { Typography } from '@mui/material';
 import { HashLink } from 'react-router-hash-link';
 

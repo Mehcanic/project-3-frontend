@@ -5,6 +5,7 @@ import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link, useNavigate } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link'
+import BasketModal from '../pages/BasketModal';
 
 import Logo from '/src/images/kleur-logo.png'
 
@@ -157,35 +158,7 @@ function NavBar() {
               <Link to='/signup' style={logSignStyle}>signup</Link>
             </Box>
 
-            <Box component='div' sx={{ flexGrow: 0 }}>
-              <Tooltip title='Open settings'>
-                <IconButton onClick={handleOpenBasketMenu} sx={{ p: 0 }}>
-                  <ShoppingBasketIcon />
-                </IconButton>
-              </Tooltip>
-              <Menu
-                sx={{ mt: '45px' }}
-                id='menu-appbar'
-                anchorEl={basketItems}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                open={Boolean(basketItems)}
-                onClose={handleCloseBasketMenu}
-              >
-                {basket.map((basket) => (
-                  <MenuItem key={basket} onClick={handleCloseBasketMenu}>
-                    <Typography textAlign='center'>{basket}</Typography>
-                  </MenuItem>
-                ))}
-              </Menu>
-            </Box>
+            <BasketModal />
           </Toolbar>
         </Container>
       </AppBar>

@@ -13,6 +13,7 @@ import Footer from "./components/Footer"
 import axios from "axios"
 import { IUser } from "./interface/users"
 import SingleProduct from "./components/SingleProduct"
+import BasketModal from "./pages/BasketModal"
 
 
 function App() {
@@ -36,14 +37,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
-          <Route path="/products/:_id" element={<SingleProduct />}/>
+          <Route path="/products/:_id" element={<SingleProduct />} />
           <Route path="/custom" element={<Custom />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/login" element={<Login fetchUser={fetchUser}/>} />
+          <Route path="/login" element={<Login fetchUser={fetchUser} />} />
           <Route path="/checkout" element={<Checkout />} />
         </Routes>
       </main>
-      <footer style={{marginTop: '10vh'}}>
+      <footer style={{ marginTop: '10vh' }}>
         <Footer />
       </footer>
     </Router>

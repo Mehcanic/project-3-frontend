@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { baseUrl } from './config'
 
 import Navbar from "./components/Navbar"
 import Home from "./pages/Home"
@@ -19,7 +20,7 @@ function App() {
 
   async function fetchUser() {
     const token = localStorage.getItem('token')
-    const { data } = await axios.get('/api/users', {
+    const { data } = await axios.get(`${baseUrl}/users`, {
       headers: { Authorization: `Bearer ${token}` }
     })
     setUser(data)

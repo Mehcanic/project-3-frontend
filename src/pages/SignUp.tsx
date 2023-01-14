@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, CssBaseline, TextField, Link, Grid, Box, Typography, Container, createTheme, ThemeProvider  } from '@mui/material'
 import { useNavigate } from 'react-router-dom';
+import { baseUrl } from '../config'
 
 import Logo from '/src/images/kleur-logo.png'
 
@@ -55,7 +56,7 @@ export default function SignUp() {
     }
 
     try {
-      await axios.post('api/signup', formData)
+      await axios.post(`${baseUrl}/signup`, formData)
       navigate('/login')
     } catch (error: any) {
       setErrorData(error.response.data.errors)

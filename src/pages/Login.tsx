@@ -42,7 +42,7 @@ export default function Login({ fetchUser }: { fetchUser: Function }) {
   async function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault()
     try {
-      const { data } = await axios.post(`${baseUrl}}/login`, formData)
+      const { data } = await axios.post(`${baseUrl}/login`, formData)
       const token = data.token
 
       if(token) {

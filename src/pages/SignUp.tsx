@@ -1,32 +1,9 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import React from 'react';
+import { Button, CssBaseline, TextField, Link, Grid, Box, Typography, Container, createTheme, ThemeProvider  } from '@mui/material'
 import { useNavigate } from 'react-router-dom';
 
 // Lukasz's stuff
-import { SyntheticEvent, useState } from 'react'
 import axios from 'axios'
-import Products from './Products'
-
-function Copyright(props: any) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="/">
-        KLEUR
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 const theme = createTheme({
   palette: {
@@ -51,19 +28,19 @@ const theme = createTheme({
 export default function SignUp() {
   const navigate = useNavigate()
 
-  const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: ""
+  const [formData, setFormData] = React.useState({
+    username: '',
+    email: '',
+    password: ''
   })
 
-  const [errorData, setErrorData] = useState({
-    username: "",
-    email: "",
-    password: ""
+  const [errorData, setErrorData] = React.useState({
+    username: '',
+    email: '',
+    password: ''
   })
 
-  async function handleSubmit(e: SyntheticEvent) {
+  async function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault()
     let isValid = true
     if (Object.values(formData).some((val) => !val)) {
@@ -89,7 +66,7 @@ export default function SignUp() {
     setFormData(newFormData)
 
     const newErrorData = structuredClone(errorData)
-    newErrorData[e.target.name] = ""
+    newErrorData[e.target.name] = ''
     setErrorData(newErrorData)
   }
 
@@ -104,9 +81,9 @@ export default function SignUp() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Container component='main' maxWidth='xs'>
         <CssBaseline />
-        <Box component="div"
+        <Box component='div'
           sx={{
             marginTop: 6,
             display: 'flex',
@@ -114,21 +91,21 @@ export default function SignUp() {
             alignItems: 'center',
           }}
         >
-          <Link href="/">
-            <img style={{ height: '100px' }} src="src/images/kleur-logo.png" alt="logoImage" />
+          <Link href='/'>
+            <img style={{ height: '100px' }} src='src/images/kleur-logo.png' alt='logoImage' />
           </Link>
-          <Typography component="h1" variant="h5">
+          <Typography component='h1' variant='h5'>
             Sign up
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3}}>
+          <Box component='form' noValidate onSubmit={handleSubmit} sx={{ mt: 3}}>
             <Grid container spacing={1}>
               <Grid item xs={12}>
                 <TextField
-                  label="Username"
-                  name="username"
-                  type="username"
-                  id="username"
-                  autoComplete="username"
+                  label='Username'
+                  name='username'
+                  type='username'
+                  id='username'
+                  autoComplete='username'
                   onChange={handleChange}
                   required
                   fullWidth
@@ -139,11 +116,11 @@ export default function SignUp() {
                 <TextField
                   required
                   fullWidth
-                  label="Email Address"
-                  name="email"
-                  type="email"
-                  id="email"
-                  autoComplete="email"
+                  label='Email Address'
+                  name='email'
+                  type='email'
+                  id='email'
+                  autoComplete='email'
                   onChange={handleChange}
                 />
               </Grid>
@@ -151,11 +128,11 @@ export default function SignUp() {
                 <TextField
                   required
                   fullWidth
-                  label="Password"
-                  name="password"
-                  type="password"
-                  id="password"
-                  autoComplete="password"
+                  label='Password'
+                  name='password'
+                  type='password'
+                  id='password'
+                  autoComplete='password'
                   onChange={handleChange}
                 />
               </Grid>
@@ -163,23 +140,22 @@ export default function SignUp() {
               </Grid>
             </Grid>
             <Button
-              type="submit"
+              type='submit'
               fullWidth
-              variant="contained"
+              variant='contained'
               sx={{ mt: 2, mb: 2 }}
             >
               Sign Up
             </Button>
-            <Grid container justifyContent="flex-end">
+            <Grid container justifyContent='flex-end'>
               <Grid item>
-                <Link href="/login" variant="body2">
+                <Link href='/login' variant='body2'>
                   Already have an account? Login
                 </Link>
               </Grid>
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 5 }} />
       </Container>
     </ThemeProvider>
   );

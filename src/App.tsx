@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 import Navbar from "./components/Navbar"
 import Home from "./pages/Home"
-import Products from "./pages/Products"
+import Products from "./pages/Collections"
 import Custom from "./pages/Custom"
 import SignUp from "./pages/SignUp"
 import Login from "./pages/Login"
@@ -11,6 +11,7 @@ import Checkout from "./pages/Checkout"
 import Footer from "./components/Footer"
 import axios from "axios"
 import { IUser } from "./interface/users"
+import SingleProduct from "./components/SingleProduct"
 
 
 function App() {
@@ -34,13 +35,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/products/:_id" element={<SingleProduct />}/>
           <Route path="/custom" element={<Custom />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login fetchUser={fetchUser}/>} />
           <Route path="/checkout" element={<Checkout />} />
         </Routes>
       </main>
-      <footer>
+      <footer style={{marginTop: '10vh'}}>
         <Footer />
       </footer>
     </Router>

@@ -1,34 +1,7 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Gradient, LineAxisOutlined, Refresh } from '@mui/icons-material';
-
-// Lukasz's stuff
-import { SyntheticEvent, useState } from 'react'
+import React from 'react'
+import { Button, CssBaseline, TextField, Link, Grid, Typography, Container, Box, createTheme, ThemeProvider } from '@mui/material'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
-import Products from './Products'
-
-
-function Copyright(props: any) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="/">
-        KLEUR
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 const theme = createTheme({
   palette: {
@@ -43,7 +16,8 @@ const theme = createTheme({
     MuiCssBaseline: {
       styleOverrides: {
         body: {
-          backgroundImage: `linear-gradient(125deg, #8ea6cb 20%, #ce8da6 80%)`
+          backgroundImage: `linear-gradient(125deg, #8ea6cb 20%, #ce8da6 80%)`,
+          height: '100vh'
         }
       }
     }
@@ -52,18 +26,19 @@ const theme = createTheme({
 
 export default function Login({ fetchUser }: { fetchUser: Function }) {
   const navigate = useNavigate()
-  const [errorMessage, setErrorMessage] = React.useState("")
-  
+  const [errorMessage, setErrorMessage] = React.useState('')
+  // format to submit data
   const [formData, setFormData] = React.useState({
-    email: "",
-    password: ""
+    email: '',
+    password: ''
   })
   
   const refreshPage = () => {
     window.location.reload()
   }
 
-  async function handleSubmit(e: SyntheticEvent) {
+  // get token
+  async function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault()
     try {
       const { data } = await axios.post('api/login', formData)
@@ -75,7 +50,7 @@ export default function Login({ fetchUser }: { fetchUser: Function }) {
         navigate('/')
         refreshPage()
       } else {
-        setErrorMessage("Invalid login details")
+        setErrorMessage('Invalid login details')
       }
       
     } catch (error: any) {
@@ -88,14 +63,14 @@ export default function Login({ fetchUser }: { fetchUser: Function }) {
     const newFormData = structuredClone(formData)
     newFormData[e.target.name] = e.target.value
     setFormData(newFormData)
-    setErrorMessage("")
+    setErrorMessage('')
   }
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Box component="div"
+      <CssBaseline />
+      <Container component='main' maxWidth='xs'>
+        <Box component='div'
           sx={{
             marginTop: 6,
             display: 'flex',
@@ -103,23 +78,23 @@ export default function Login({ fetchUser }: { fetchUser: Function }) {
             alignItems: 'center',
           }}
         >
-          <Link href="/">
-            <img style={{ height: '100px' }} src="src/images/kleur-logo.png" alt="logoImage" />
+          <Link href='/'>
+            <img style={{ height: '100px' }} src='src/images/kleur-logo.png' alt='logoImage' />
           </Link>
-          <Typography component="h1" variant="h5" fontFamily='Open Sans'>
+          <Typography component='h1' variant='h5' fontFamily='Open Sans'>
             Login
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Box component='form' noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={1}>
               <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
-                  label="Email Address"
-                  name="email"
-                  type="email"
-                  id="email"
-                  autoComplete="email"
+                  label='Email Address'
+                  name='email'
+                  type='email'
+                  id='email'
+                  autoComplete='email'
                   onChange={handleChange}
                   value={formData.email}
                 />
@@ -128,11 +103,11 @@ export default function Login({ fetchUser }: { fetchUser: Function }) {
                 <TextField
                   required
                   fullWidth
-                  label="Password"
-                  name="password"
-                  type="password"
-                  id="password"
-                  autoComplete="password"
+                  label='Password'
+                  name='password'
+                  type='password'
+                  id='password'
+                  autoComplete='password'
                   onChange={handleChange}
                   value={formData.password}
                 />
@@ -141,16 +116,16 @@ export default function Login({ fetchUser }: { fetchUser: Function }) {
               </Grid>
             </Grid>
             <Button
-              type="submit"
+              type='submit'
               fullWidth
-              variant="contained"
+              variant='contained'
               sx={{ mt: 2, mb: 2 }}
             >
               Login
             </Button>
-            <Grid container justifyContent="flex-end">
+            <Grid container justifyContent='flex-end'>
               <Grid item>
-                <Link href="/signup" variant="body2">
+                <Link href='/signup' variant='body2'>
                   No Account? Signup
                 </Link>
               </Grid>

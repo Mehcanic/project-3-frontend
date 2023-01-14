@@ -1,43 +1,31 @@
 import React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
+import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Tooltip, Container, MenuItem, CssBaseline } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
-import Tooltip from '@mui/material/Tooltip';
-import Container from '@mui/material/Container';
-import MenuItem from '@mui/material/MenuItem';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link'
-import { CssBaseline } from '@mui/material';
 
-import { useNavigate } from 'react-router-dom';
 
-const pagesAll = ['products', 'custom', 'about', 'contact', 'login', 'signup'];
 const basket = ['product1', 'product2', 'product3'];
 
 function NavBar() {
   // State and function for changing login to logout text - LB
   const navigate = useNavigate()
-  const [token, setToken] = React.useState(localStorage.getItem("token") || null)
+  const [token, setToken] = React.useState(localStorage.getItem('token') || null)
   const [loginText, setLoginText] = React.useState('login')
 
   React.useEffect(() => {
     if(token) {
-      setLoginText("logout")
+      setLoginText('logout')
     } else {
-      setLoginText("login")
+      setLoginText('login')
     }
   }, [token])
 
   const handleLogout = () => {
-    if(loginText === "logout")
-    localStorage.removeItem("token")
+    if(loginText === 'logout')
+    localStorage.removeItem('token')
     setToken(null)
     navigate('/login')
   }
@@ -64,15 +52,15 @@ function NavBar() {
   };
 
   const pageStyle = {
-    margin: "1rem",
-    textDecoration: "none",
+    margin: '1rem',
+    textDecoration: 'none',
     color: 'black',
   };
 
   const logSignStyle = {
-    margin: "1rem",
-    padding: "0.1rem 1.5rem",
-    border: "0.5px solid grey",
+    margin: '1rem',
+    padding: '0.1rem 1.5rem',
+    border: '0.5px solid grey',
     borderRadius: 6,
     color: 'white',
     backgroundColor: '#426da2',
@@ -86,33 +74,33 @@ function NavBar() {
 
   return (
     <ThemeProvider theme={theme}>
-      <div id="home"></div>
-      <AppBar position="static" color="default">
+      <div id='home'></div>
+      <AppBar position='static' color='default'>
 
         <Container fixed>
           <Toolbar disableGutters >
             <CssBaseline />
             {/* Logo for large window */}
-            <Box component="div" sx={{ display: { xs: 'none', md: 'flex' }, mr: 5 }}>
+            <Box component='div' sx={{ display: { xs: 'none', md: 'flex' }, mr: 5 }}>
               <Link to='/'>
-                <img style={{ height: '100px', paddingTop: '10px' }} src="src/images/kleur-logo.png" alt="logoImage" />
+                <img style={{ height: '100px', paddingTop: '10px' }} src='src/images/kleur-logo.png' alt='logoImage' />
               </Link>
             </Box>
 
             {/* Burger menu for mobile */}
-            <Box component="div" sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, color: "black" }}>
+            <Box component='div' sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, color: 'black' }}>
               <IconButton
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
+                size='large'
+                aria-label='account of current user'
+                aria-controls='menu-appbar'
+                aria-haspopup='true'
                 onClick={handleOpenNavMenu}
-                color="inherit"
+                color='inherit'
               >
                 <MenuIcon />
               </IconButton>
               <Menu
-                id="menu-appbar"
+                id='menu-appbar'
                 anchorEl={navMenu}
                 anchorOrigin={{
                   vertical: 'bottom',
@@ -151,32 +139,32 @@ function NavBar() {
             </Box>
 
             {/* Logo for mobile */}
-            <Box component="div" sx={{ display: { xs: 'flex', md: 'none' }, mr: 3 }}>
+            <Box component='div' sx={{ display: { xs: 'flex', md: 'none' }, mr: 3 }}>
               <Link to='/'>
-                <img style={{ height: '100px', paddingTop: '10px' }} src="src/images/kleur-logo.png" alt="logoImage" />
+                <img style={{ height: '100px', paddingTop: '10px' }} src='src/images/kleur-logo.png' alt='logoImage' />
               </Link>
             </Box>
 
-            <Box component="div" sx={{ fontFamily: 'Open Sans', flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            <Box component='div' sx={{ fontFamily: 'Open Sans', flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               <Link to='/products' style={pageStyle}>collections</Link>
               <Link to='/custom' style={pageStyle}>custom</Link>
               <HashLink smooth to='/#about' style={pageStyle}>about</HashLink>
               <HashLink smooth to='/#contact' style={pageStyle}>contact</HashLink>
             </Box>
-            <Box component="div" sx={{ fontFamily: 'Open Sans', flexGrow: 0.5, display: { xs: 'none', md: 'flex' } }}>
+            <Box component='div' sx={{ fontFamily: 'Open Sans', flexGrow: 0.5, display: { xs: 'none', md: 'flex' } }}>
               <Link to='/login' style={logSignStyle} onClick={handleLogout}>{loginText}</Link>
               <Link to='/signup' style={logSignStyle}>signup</Link>
             </Box>
 
-            <Box component="div" sx={{ flexGrow: 0 }}>
-              <Tooltip title="Open settings">
+            <Box component='div' sx={{ flexGrow: 0 }}>
+              <Tooltip title='Open settings'>
                 <IconButton onClick={handleOpenBasketMenu} sx={{ p: 0 }}>
                   <ShoppingBasketIcon />
                 </IconButton>
               </Tooltip>
               <Menu
                 sx={{ mt: '45px' }}
-                id="menu-appbar"
+                id='menu-appbar'
                 anchorEl={basketItems}
                 anchorOrigin={{
                   vertical: 'top',
@@ -192,7 +180,7 @@ function NavBar() {
               >
                 {basket.map((basket) => (
                   <MenuItem key={basket} onClick={handleCloseBasketMenu}>
-                    <Typography textAlign="center">{basket}</Typography>
+                    <Typography textAlign='center'>{basket}</Typography>
                   </MenuItem>
                 ))}
               </Menu>

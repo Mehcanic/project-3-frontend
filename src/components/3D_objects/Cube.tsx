@@ -2,8 +2,9 @@ import { useBox } from "@react-three/cannon"
 import { Mesh } from "three"
 import { useFrame } from "@react-three/fiber"
 import { useRef } from "react"
-function Cube(){
+function Cube({color}: any){
   const meshRef = useRef<Mesh>(null)
+  console.log(color)
   
   useFrame(()=>{
     if(!meshRef.current){
@@ -16,7 +17,7 @@ function Cube(){
   return(
     <mesh ref={meshRef} >
       <boxGeometry attach="geometry"/>
-      <meshLambertMaterial  attach="material" color="#ff6" />
+      <meshLambertMaterial  attach="material" color={`rgb(${color})`} />
     </mesh>
   )
 }

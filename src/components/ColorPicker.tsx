@@ -1,7 +1,6 @@
 import React from 'react'
-import { HuePicker, AlphaPicker, InjectedColorProps, RGBColor, ColorResult } from 'react-color'
+import { HuePicker, AlphaPicker } from 'react-color'
 import { Grid } from '@mui/material'
-
 
 function ColorPicker(props: any) {
   const [currentColor, setCurrentColor] = React.useState<string>('#ff6')
@@ -24,16 +23,14 @@ function ColorPicker(props: any) {
   const hueCircle = {
     background: `${currentColor}`,
     opacity: `${opacity}`,
-    width: "350px",
-    height: "350px",
-    borderRadius: "360px"
+    width: '350px',
+    height: '350px',
+    borderRadius: '360px'
   }
-
-  // send data back to home page for the hero bg image color and opacity
 
   return (
     <>
-      <Grid container spacing={2} direction="row" justifyContent="center" alignItems="center">
+      <Grid container spacing={2} direction='column' justifyContent='center' alignItems='center'>
         <Grid item sx={{ display: 'flex', flexDirection: 'column', }}>
           <HuePicker
             color={currentColor}

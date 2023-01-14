@@ -5,7 +5,7 @@ import Plane from './3D_objects/Plane'
 import { Physics } from '@react-three/cannon';
 function Renderer({ color } : any){
   const canvasStyle ={
-    height: '700px',
+    // height: '700px',
     background: 'black'
   }
   return(

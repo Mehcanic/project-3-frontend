@@ -90,9 +90,8 @@ function Contact() {
                 </Grid>
               </Grid>
             </Grid>
-
           </Grid>
-
+          <Typography mt={4} p={4} variant='subtitle1' align='center' sx={{ fontFamily: 'Open Sans', fontWeight: '400' }}>Three programming friends enrolled in a course with General Assembly in London testing our skills and building a full stack application for mobile and web, selling beautiful colours to all.</Typography>
         </Container>
       </div>
 

@@ -2,6 +2,7 @@ import React from 'react'
 import { Button, CssBaseline, TextField, Link, Grid, Typography, Container, Box, createTheme, ThemeProvider } from '@mui/material'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
+import { baseUrl } from '../config'
 
 const theme = createTheme({
   palette: {
@@ -41,7 +42,7 @@ export default function Login({ fetchUser }: { fetchUser: Function }) {
   async function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault()
     try {
-      const { data } = await axios.post('api/login', formData)
+      const { data } = await axios.post(`${baseUrl}}/login`, formData)
       const token = data.token
 
       if(token) {

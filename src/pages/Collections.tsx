@@ -2,12 +2,13 @@ import React from 'react';
 import { CssBaseline, Container, Grid } from '@mui/material';
 import ProductCard from '../components/ProductCard';
 import { IProduct }  from '../interface/product'
+import { baseUrl } from '../config'
 
 function Collections() {
   const [products, setProducts] = React.useState<Array<IProduct> | []>([])
 
   const getProducts = async () => {
-    const response = await fetch('/api/products');
+    const response = await fetch(`${baseUrl}/products`);
     const data = await response.json();
     setProducts(data);
   };

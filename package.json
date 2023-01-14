@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite --open",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "node dist/index.js"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",

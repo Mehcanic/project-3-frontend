@@ -6,6 +6,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link, useNavigate } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link'
 
+import Logo from '/src/images/kleur-logo.png'
 
 const basket = ['product1', 'product2', 'product3'];
 
@@ -83,7 +84,7 @@ function NavBar() {
             {/* Logo for large window */}
             <Box component='div' sx={{ display: { xs: 'none', md: 'flex' }, mr: 5 }}>
               <Link to='/'>
-                <img style={{ height: '100px', paddingTop: '10px' }} src='src/images/kleur-logo.png' alt='logoImage' />
+                <img style={{ height: '100px', paddingTop: '10px' }} src={Logo} alt='logoImage' />
               </Link>
             </Box>
 
@@ -141,7 +142,7 @@ function NavBar() {
             {/* Logo for mobile */}
             <Box component='div' sx={{ display: { xs: 'flex', md: 'none' }, mr: 3 }}>
               <Link to='/'>
-                <img style={{ height: '100px', paddingTop: '10px' }} src='src/images/kleur-logo.png' alt='logoImage' />
+                <img style={{ height: '100px', paddingTop: '10px' }} src={Logo} alt='logoImage' />
               </Link>
             </Box>
 

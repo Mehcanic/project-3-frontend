@@ -1,7 +1,12 @@
+import React from 'react';
 import { Container, Typography, Grid, Avatar } from '@mui/material'
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import LanguageIcon from '@mui/icons-material/Language';
+
+import Raf from '/src/images/raf.jpg';
+import Rob from '/src/images/rob.jpg';
+import Lukasz from '/src/images/lukasz.jpg';
 
 function Contact() {
 
@@ -17,7 +22,7 @@ function Contact() {
               </Typography>
             </Grid>
             <Grid item xs={12} lg={4} md={4} sm={12} sx={{ display: 'flex', flexDirection: 'column', backgroundColor: '#d0dbee', p: 2}}>
-              <Avatar src='src/images/raf.jpg' alt='Rafael Soares' sx={{ alignSelf: 'center', height: 150, width: 150, mt: 4 }} />
+              <Avatar src={Raf} alt='Rafael Soares' sx={{ alignSelf: 'center', height: 150, width: 150, mt: 4 }} />
               <Typography sx={{ textAlign: 'center', pt: 1, fontFamily: 'Oswald', fontWeight: 500, pb: 3 }}>RAFAEL SOARES</Typography>
               <Grid container>
                 <Grid item xs={4} sx={{ display: 'flex', flexDirection: 'column' }}>
@@ -42,7 +47,7 @@ function Contact() {
             </Grid>
 
             <Grid item xs={12} lg={4} md={4} sm={12} sx={{ display: 'flex', flexDirection: 'column', backgroundColor: '#d5d0ee', p: 2 }}>
-              <Avatar src='src/images/lukasz.jpeg' alt='Rafael Soares' sx={{ alignSelf: 'center', height: 150, width: 150, mt: 4 }} />
+              <Avatar src={Lukasz} alt='Rafael Soares' sx={{ alignSelf: 'center', height: 150, width: 150, mt: 4 }} />
               <Typography sx={{ textAlign: 'center', pt: 1, fontFamily: 'Oswald', fontWeight: 500, pb: 3 }}>LUKASZ BIALY</Typography>
               <Grid container>
                 <Grid item xs={4} sx={{ display: 'flex', flexDirection: 'column' }}>
@@ -67,7 +72,7 @@ function Contact() {
             </Grid>
 
             <Grid item xs={12} lg={4} md={4} sm={12} sx={{ display: 'flex', flexDirection: 'column', backgroundColor: '#d0e9ee', p: 2 }}>
-              <Avatar src='src/images/rob.jpg' alt='Rafael Soares' sx={{ alignSelf: 'center', height: 150, width: 150, mt: 4 }} />
+              <Avatar src={Rob} alt='Rafael Soares' sx={{ alignSelf: 'center', height: 150, width: 150, mt: 4 }} />
               <Typography sx={{ textAlign: 'center', pt: 1, fontFamily: 'Oswald', fontWeight: 500, pb: 3 }}>ROB WILHELMSSON</Typography>
               <Grid container>
                 <Grid item xs={4} sx={{ display: 'flex', flexDirection: 'column' }}>

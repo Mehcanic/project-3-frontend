@@ -2,6 +2,8 @@ import { CssBaseline, Box, Typography, Link, Grid, Container, Divider, createThe
 import { FaCcVisa, FaCcMastercard, FaCcAmex, FaCcPaypal, FaCcApplePay } from 'react-icons/fa'
 import Copyright from './Copyright';
 
+import Logo from '/src/images/kleur-logo.png'
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -30,7 +32,7 @@ function Footer() {
           <Grid container direction='row' spacing={5} sx={{mt: 1}}>
             <Grid item xs={6} md={3} lg={3} sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
               <Link href='/'>
-                <img style={{ height: '70px' }} src='src/images/kleur-logo.png' alt='logoImage' />
+                <img style={{ height: '70px' }} src={Logo} alt='logoImage' />
               </Link>
             </Grid>
             <Grid item xs={6} md={3} lg={3} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} >

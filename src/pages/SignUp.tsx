@@ -2,6 +2,8 @@ import React from 'react';
 import { Button, CssBaseline, TextField, Link, Grid, Box, Typography, Container, createTheme, ThemeProvider  } from '@mui/material'
 import { useNavigate } from 'react-router-dom';
 
+import Logo from '/src/images/kleur-logo.png'
+
 // Lukasz's stuff
 import axios from 'axios'
 
@@ -92,7 +94,7 @@ export default function SignUp() {
           }}
         >
           <Link href='/'>
-            <img style={{ height: '100px' }} src='src/images/kleur-logo.png' alt='logoImage' />
+            <img style={{ height: '100px' }} src={Logo} alt='logoImage' />
           </Link>
           <Typography component='h1' variant='h5'>
             Sign up

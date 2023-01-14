@@ -3,6 +3,8 @@ import { Button, CssBaseline, TextField, Link, Grid, Typography, Container, Box,
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 
+import Logo from '/src/images/kleur-logo.png'
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -80,7 +82,7 @@ export default function Login({ fetchUser }: { fetchUser: Function }) {
           }}
         >
           <Link href='/'>
-            <img style={{ height: '100px' }} src='src/images/kleur-logo.png' alt='logoImage' />
+            <img style={{ height: '100px' }} src={Logo} alt='logoImage' />
           </Link>
           <Typography component='h1' variant='h5' fontFamily='Open Sans'>
             Login

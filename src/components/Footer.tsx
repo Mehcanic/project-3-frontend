@@ -53,7 +53,7 @@ function Footer() {
                 <FaCcApplePay />
                 <FaCcAmex />
               </Box>
-
+              
             </Grid>
           </Grid>
           <Divider variant='middle' sx={{ mt: '25px', mb: '10px' }} />

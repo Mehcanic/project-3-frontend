@@ -42,7 +42,7 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
         </Routes>
       </main>
-      <footer style={{marginTop: '45vh'}}>
+      <footer style={{marginTop: '10vh'}}>
         <Footer />
       </footer>
     </Router>

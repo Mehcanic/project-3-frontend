@@ -6,7 +6,7 @@ function CarouselImages(props: any) {
     <>
     <Link to={`/products/${props._id}`}>
       <CardMedia
-        sx={{ height: 200 }}
+        sx={{ height: 300 }}
         image={props.image}
       />
     </Link>

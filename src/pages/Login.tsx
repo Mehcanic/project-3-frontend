@@ -73,7 +73,7 @@ export default function Login({ fetchUser }: { fetchUser: Function }) {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Container component='main' maxWidth='xs'>
+      <Container component='main' maxWidth='xs' sx={{height: '60vh'}}>
         <Box component='div'
           sx={{
             marginTop: 6,
